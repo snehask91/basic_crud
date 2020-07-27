@@ -1,0 +1,39 @@
+{
+  "name": "hwm-service",
+  "version": "0.0.1",
+  "description": "hwm microservices",
+  "scripts": {
+    "test": "mocha ./tests/ --timeout 10000"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^2.0.3",
+    "amazon-cognito-js": "^1.1.0",
+    "async": "^2.6.1",
+    "aws-sdk": "^2.140.0",
+    "bluebird": "^3.5.1",
+    "buffer": "^5.1.0",
+    "cognito-user-pool": "^0.1.13",
+    "cors": "^2.8.4",
+    "express": "^4.17.1",
+    "is-my-json-valid": "^2.19.0",
+    "jsonwebtoken": "^7.4.3",
+    "jwk-to-pem": "^2.0.0",
+    "promise": "^8.0.2",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "serverless": "^1.71.3",
+    "serverless-offline": "^3.33.0",
+    "serverless-plugin-include-dependencies": "^3.2.1",
+    "serverless-plugin-split-stacks": "^1.9.3",
+    "serverless-prune-plugin": "^1.4.2",
+    "serverless-webpack": "^3.1.2",
+    "stripe": "^8.54.0",
+    "url": "^0.11.0",
+    "util": "^0.11.1",
+    "uuid": "^2.0.3"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^7.4.3"
+  }
+}

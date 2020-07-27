@@ -1,0 +1,122 @@
+service: user-management-service
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  memorySize: 1024 
+  timeout: 300 
+  stage: dev
+  environment: ${file(./env.yml):${opt:stage, self:provider.stage}}
+
+plugins:
+  - serverless-offline  
+
+functions:
+  get:
+    handler: services/get.get
+    events:
+      - http:
+          path: /users
+          method: get
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
+  getById:
+    handler: services/getById.getById
+    events:
+      - http:
+          path: /users/{id}
+          method: get
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
+  search:
+    handler: services/search.search
+    events:
+      - http:
+          path: /users/search
+          method: post
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
+  insert:
+    handler: services/insert.insert
+    events:
+      - http:
+          path: /users
+          method: post
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
+  update:
+    handler: services/update.update
+    events:
+      - http:
+          path: /users/{id}
+          method: put
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
+  remove:
+    handler: services/remove.remove
+    events:
+      - http:
+          path: /users
+          method: delete
+          cors: 
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - accesstoken
+                - X-Amz-User-Agent
+                - Access-Control-Allow-Origin
+                - Access-Control-Allow-Credentials 
